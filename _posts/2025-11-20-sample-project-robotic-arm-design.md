@@ -1,6 +1,6 @@
 ---
 title: "6-DOF Robotic Arm Design & Kinematic Analysis"
-date: 2024-02-20
+date: 2025-11-20
 categories:
   - Robotics
   - Design
