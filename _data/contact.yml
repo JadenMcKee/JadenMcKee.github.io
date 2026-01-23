@@ -2,10 +2,14 @@
 
 - type: linkedin
   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-  url:  ''                  # Fill with your Linkedin homepage
+  url:  'https://www.linkedin.com/in/jaden-mckee-a92a59310'
 
 - type: github
   icon: "fab fa-github"
+
+- type: instagram
+  icon: "fab fa-instagram"
+  url: "https://www.instagram.com/jaden11mckee/"
 
 - type: email
   icon: "fas fa-envelope"
