@@ -13,6 +13,7 @@
 
 - type: email
   icon: "fas fa-envelope"
+  url: "mailto:jaden11@mit.edu"
   noblank: true # open link in current tab
 
 - type: rss
