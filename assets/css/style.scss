@@ -1,0 +1,48 @@
+---
+---
+
+/* Custom styles to hide trending tags and recently updated panels */
+/* Note: Theme styles are already loaded, we just need to add our overrides */
+
+/* Very broad selectors to catch any trending tags panel */
+#sidebar [id*="trending"],
+#sidebar [class*="trending"],
+#sidebar [id*="trending-tags"],
+#sidebar [class*="trending-tags"],
+#sidebar [id*="trending_tags"],
+#sidebar [class*="trending_tags"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide recently updated panels */
+#sidebar [id*="recent"],
+#sidebar [class*="recent"],
+#sidebar [id*="recent-posts"],
+#sidebar [class*="recent-posts"],
+#sidebar [id*="recent_posts"],
+#sidebar [class*="recent_posts"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Target panels by their position - hide 2nd and 3rd panels (often trending/recent) */
+#sidebar .panel-wrapper > div:nth-child(2),
+#sidebar .panel-wrapper > div:nth-child(3),
+#sidebar #panel-wrapper > div:nth-child(2),
+#sidebar #panel-wrapper > div:nth-child(3) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

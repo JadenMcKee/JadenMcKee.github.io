@@ -4,3 +4,38 @@ layout: home
 ---
 
 Welcome to my Mechanical Engineering Portfolio! This site showcases my engineering projects, technical expertise, and professional experience. Browse through my portfolio projects below or explore by [categories](/categories/) and [tags](/tags/).
+
+<script>
+// Direct inline script to hide panels - runs on this page
+(function() {
+  function hide() {
+    var s = document.getElementById('sidebar');
+    if (!s) return;
+    var w = s.querySelector('#panel-wrapper, .panel-wrapper');
+    if (w && w.children.length >= 2) {
+      w.children[1].style.display = 'none';
+      if (w.children.length >= 3) w.children[2].style.display = 'none';
+    }
+    var h5s = s.querySelectorAll('h5');
+    for (var i = 0; i < h5s.length; i++) {
+      var t = (h5s[i].textContent || '').toLowerCase().trim();
+      if (t === 'trending tags' || t === 'recently updated') {
+        var p = h5s[i].parentElement;
+        while (p && p !== s) {
+          if (p.tagName === 'DIV') {
+            p.style.display = 'none';
+            break;
+          }
+          p = p.parentElement;
+        }
+      }
+    }
+  }
+  hide();
+  setTimeout(hide, 100);
+  setTimeout(hide, 500);
+  if (window.MutationObserver) {
+    new MutationObserver(hide).observe(document.getElementById('sidebar') || document.body, {childList: true, subtree: true});
+  }
+})();
+</script>

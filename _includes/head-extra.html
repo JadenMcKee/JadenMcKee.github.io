@@ -1,0 +1,52 @@
+<!-- Custom CSS for hiding sidebar panels -->
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+<style>
+/* Inline styles to ensure trending tags are hidden */
+#sidebar #panel-wrapper #trending-tags,
+#sidebar #panel-wrapper .trending-tags,
+#sidebar .panel-wrapper #trending-tags,
+#sidebar .panel-wrapper .trending-tags,
+#sidebar [id*="trending"],
+#sidebar [class*="trending"],
+#sidebar [id*="trending-tags"],
+#sidebar [class*="trending-tags"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+</style>
+<!-- Custom JavaScript for hiding sidebar panels -->
+<script src="{{ '/assets/js/hide-sidebar-panels.js' | relative_url }}"></script>
+<script>
+// Immediate inline script to hide trending tags
+(function() {
+  function hideTrending() {
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+    
+    // Find all divs and check their content
+    const allDivs = sidebar.querySelectorAll('div');
+    allDivs.forEach(function(div) {
+      const text = (div.textContent || '').toLowerCase();
+      const heading = div.querySelector('h5, h4, h3, h6');
+      if (heading && (heading.textContent || '').toLowerCase().includes('trending')) {
+        div.style.display = 'none';
+        div.style.visibility = 'hidden';
+        div.style.height = '0';
+        div.style.overflow = 'hidden';
+      }
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideTrending);
+  } else {
+    hideTrending();
+  }
+  setTimeout(hideTrending, 100);
+  setTimeout(hideTrending, 500);
+})();
+</script>

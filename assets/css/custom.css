@@ -1,0 +1,33 @@
+/* Hide trending tags panel in Chirpy sidebar - Comprehensive selectors */
+#sidebar #panel-wrapper #trending-tags,
+#sidebar #panel-wrapper .trending-tags,
+#sidebar .panel-wrapper #trending-tags,
+#sidebar .panel-wrapper .trending-tags,
+#sidebar [id*="trending-tags"],
+#sidebar [id*="trending_tags"],
+#sidebar [class*="trending-tags"],
+#sidebar [class*="trending_tags"],
+#sidebar [id*="trending"],
+#sidebar [class*="trending"] {
+  display: none !important;
+}
+
+/* Hide recently updated posts panel in Chirpy sidebar */
+#sidebar #panel-wrapper #recent-posts,
+#sidebar #panel-wrapper .recent-posts,
+#sidebar .panel-wrapper #recent-posts,
+#sidebar .panel-wrapper .recent-posts,
+#sidebar [id*="recent-posts"],
+#sidebar [id*="recent_posts"],
+#sidebar [class*="recent-posts"],
+#sidebar [class*="recent_posts"],
+#sidebar [id*="recent"],
+#sidebar [class*="recent"] {
+  display: none !important;
+}
+
+/* Hide panels by data attributes */
+#sidebar [data-panel="trending-tags"],
+#sidebar [data-panel="recent-posts"] {
+  display: none !important;
+}

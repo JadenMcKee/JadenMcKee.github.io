@@ -1,0 +1,84 @@
+<!-- Ultra-aggressive script to hide trending tags and recently updated panels -->
+<script>
+(function() {
+  'use strict';
+  
+  function hidePanels() {
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+    
+    // Get ALL elements in sidebar
+    const allElements = sidebar.querySelectorAll('*');
+    
+    allElements.forEach(function(el) {
+      // Skip if already hidden
+      if (el.style.display === 'none') return;
+      
+      const text = (el.textContent || '').toLowerCase();
+      const heading = el.querySelector('h5, h4, h3, h6, .panel-heading, .card-header, .card-title');
+      
+      if (heading) {
+        const headingText = (heading.textContent || '').toLowerCase().trim();
+        
+        // Hide trending tags panel
+        if (headingText === 'trending tags' || headingText.includes('trending tags')) {
+          el.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          // Hide parent container
+          let parent = el.parentElement;
+          if (parent && parent !== sidebar) {
+            parent.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          }
+        }
+        
+        // Hide recently updated panel
+        if (headingText === 'recently updated' || headingText.includes('recently updated')) {
+          el.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          // Hide parent container
+          let parent = el.parentElement;
+          if (parent && parent !== sidebar) {
+            parent.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          }
+        }
+      }
+    });
+  }
+  
+  // Run immediately
+  hidePanels();
+  
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hidePanels);
+  }
+  
+  // Run multiple times with delays
+  setTimeout(hidePanels, 50);
+  setTimeout(hidePanels, 200);
+  setTimeout(hidePanels, 500);
+  setTimeout(hidePanels, 1000);
+  setTimeout(hidePanels, 2000);
+  setTimeout(hidePanels, 3000);
+  
+  // Use MutationObserver to catch dynamic changes
+  if (typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver(function() {
+      hidePanels();
+    });
+    
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+      observer.observe(sidebar, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        characterData: true
+      });
+    }
+  }
+  
+  // Also listen for any DOM changes globally
+  document.addEventListener('DOMContentLoaded', function() {
+    setInterval(hidePanels, 1000);
+  });
+})();
+</script>
