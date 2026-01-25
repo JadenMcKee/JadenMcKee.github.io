@@ -32,9 +32,20 @@
       }
       
       // Hide recently updated
-      if (headingText === 'recently updated' || headingText.includes('recently updated')) {
+      if (headingText === 'recently updated' || 
+          headingText.includes('recently updated') ||
+          headingText === 'recent posts' ||
+          headingText.includes('recent posts')) {
         if (panel) {
           panel.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          // Also hide parent if it's a panel wrapper
+          let parent = panel.parentElement;
+          if (parent && parent !== sidebar && (parent.id === 'panel-wrapper' || parent.className.includes('panel-wrapper'))) {
+            // Hide the first child which is usually recently updated
+            if (parent.children[0]) {
+              parent.children[0].style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+            }
+          }
         }
         heading.style.cssText = 'display: none !important; visibility: hidden !important;';
       }

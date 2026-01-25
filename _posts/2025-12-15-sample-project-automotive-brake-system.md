@@ -4,12 +4,6 @@ date: 2025-12-15
 categories:
   - Design
   - Analysis
-tags:
-  - FEA
-  - SolidWorks
-  - ANSYS
-  - Automotive
-  - Brake Systems
 math: true
 toc: true
 ---

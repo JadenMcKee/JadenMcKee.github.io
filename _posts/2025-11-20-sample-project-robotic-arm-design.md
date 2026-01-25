@@ -1,22 +1,16 @@
 ---
-title: "6-DOF Robotic Arm Design & Kinematic Analysis"
-date: 2025-11-20
+title: "Freespace Cryostat Upgrades"
+date: 2026-1-20
 categories:
-  - Robotics
+  - Manufacturing
   - Design
-tags:
-  - Robotics
-  - MATLAB
-  - Kinematics
-  - Control Systems
-  - 3D Printing
 math: true
 toc: true
 ---
 
 ## Project Overview
 
-Designed and analyzed a 6-degree-of-freedom (6-DOF) robotic arm for pick-and-place applications. The project encompassed mechanical design, forward/inverse kinematics analysis, and prototype development using 3D printing.
+Designed and implemented mechanical upgrades to cryostat in order to improve ease of use
 
 ## Objectives
 
@@ -49,7 +43,7 @@ The arm consists of 6 revolute joints:
 
 ## CAD Modeling
 
-The robotic arm was designed in **SolidWorks** with emphasis on:
+The ACME lead screw jack was designed in **SolidWorks** with emphasis on:
 
 - **Lightweight Structure**: Optimized link geometry using topology optimization
 - **Stiffness**: Ensured adequate rigidity for precision tasks

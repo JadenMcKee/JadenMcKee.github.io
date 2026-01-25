@@ -31,12 +31,20 @@
         }
         
         // Hide recently updated panel
-        if (headingText === 'recently updated' || headingText.includes('recently updated')) {
+        if (headingText === 'recently updated' || 
+            headingText.includes('recently updated') ||
+            headingText === 'recent posts' ||
+            headingText.includes('recent posts')) {
           el.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
-          // Hide parent container
+          // Hide parent container - go up multiple levels to find panel
           let parent = el.parentElement;
-          if (parent && parent !== sidebar) {
-            parent.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          let depth = 0;
+          while (parent && parent !== sidebar && depth < 5) {
+            if (parent.tagName === 'DIV' && (parent.className || parent.id || parent.classList.length > 0)) {
+              parent.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+            }
+            parent = parent.parentElement;
+            depth++;
           }
         }
       }

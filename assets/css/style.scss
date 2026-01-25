@@ -34,9 +34,11 @@
   padding: 0 !important;
 }
 
-/* Target panels by their position - hide 2nd and 3rd panels (often trending/recent) */
+/* Target panels by their position - hide 1st (recently updated), 2nd and 3rd panels */
+#sidebar .panel-wrapper > div:nth-child(1),
 #sidebar .panel-wrapper > div:nth-child(2),
 #sidebar .panel-wrapper > div:nth-child(3),
+#sidebar #panel-wrapper > div:nth-child(1),
 #sidebar #panel-wrapper > div:nth-child(2),
 #sidebar #panel-wrapper > div:nth-child(3) {
   display: none !important;

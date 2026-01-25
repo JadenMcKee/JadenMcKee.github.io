@@ -21,9 +21,9 @@
 <!-- Custom JavaScript for hiding sidebar panels -->
 <script src="{{ '/assets/js/hide-sidebar-panels.js' | relative_url }}"></script>
 <script>
-// Immediate inline script to hide trending tags
+// Immediate inline script to hide trending tags and recently updated
 (function() {
-  function hideTrending() {
+  function hidePanels() {
     const sidebar = document.getElementById('sidebar');
     if (!sidebar) return;
     
@@ -32,21 +32,35 @@
     allDivs.forEach(function(div) {
       const text = (div.textContent || '').toLowerCase();
       const heading = div.querySelector('h5, h4, h3, h6');
-      if (heading && (heading.textContent || '').toLowerCase().includes('trending')) {
-        div.style.display = 'none';
-        div.style.visibility = 'hidden';
-        div.style.height = '0';
-        div.style.overflow = 'hidden';
+      if (heading) {
+        const headingText = (heading.textContent || '').toLowerCase();
+        if (headingText.includes('trending') || 
+            headingText.includes('recently updated') ||
+            headingText.includes('recent posts')) {
+          div.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          // Also hide parent
+          let parent = div.parentElement;
+          if (parent && parent !== sidebar) {
+            parent.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+          }
+        }
       }
     });
+    
+    // Also hide first panel by position (usually recently updated)
+    const wrapper = sidebar.querySelector('#panel-wrapper, .panel-wrapper');
+    if (wrapper && wrapper.children.length > 0) {
+      wrapper.children[0].style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important;';
+    }
   }
   
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', hideTrending);
+    document.addEventListener('DOMContentLoaded', hidePanels);
   } else {
-    hideTrending();
+    hidePanels();
   }
-  setTimeout(hideTrending, 100);
-  setTimeout(hideTrending, 500);
+  setTimeout(hidePanels, 100);
+  setTimeout(hidePanels, 500);
+  setTimeout(hidePanels, 1000);
 })();
 </script>

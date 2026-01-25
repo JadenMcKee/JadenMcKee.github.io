@@ -4,8 +4,6 @@ icon: fas fa-user
 order: 1
 ---
 
-## About Me
-
 Welcome to my mechanical engineering portfolio. I am a second year mechanical engineering student with a passion for design, innovation, and entrepreneurship. This portfolio showcases my projects, technical skills, and professional experience.
 
 ---
@@ -27,6 +25,7 @@ Welcome to my mechanical engineering portfolio. I am a second year mechanical en
 
 ### **Analysis & Simulation**
 - MATLAB/Simulink
+- Ansys
 
 ### **Manufacturing & Prototyping**
 - Mill
@@ -56,19 +55,9 @@ Welcome to my mechanical engineering portfolio. I am a second year mechanical en
 
 ---
 
-## Core Competencies
-
-- **Design & Development**: Product design, prototyping, and validation
-- **Analysis & Simulation**: FEA, CFD, thermal analysis, and optimization
-- **Manufacturing**: Process design, tooling, and quality control
-- **Project Management**: Leading engineering projects from concept to production
-- **Problem Solving**: Analytical thinking and innovative solutions
-
-
 ## Interests
 
-When I'm not engineering, I enjoy Pole Vaulting, Surfing, and Skateboarding.
+When I am not busy engineering, I can usually be found training with the MIT varisty pole vault team, surfing with my buddies, or skateboarding at the local park
 
 ---
 
-*Feel free to explore my [projects](/projects/) or [contact me](/contact/) to discuss opportunities.*
